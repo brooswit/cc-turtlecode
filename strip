@@ -8,13 +8,14 @@ while true do
   turtle.suck()
   
   if turtle.getFuelLevel() < turtle.getFuelLimit() then
-    local slot = 	turtle.getSelectedSlot() + 1)
+    local slot = turtle.getSelectedSlot() + 1
     if slot > 16 then
       slot = 0
-      turtle.select(slot)
-      if not turtle.refuel(1) then
-        turtle.drop()
-      end
+    end
+    turtle.select(slot)
+
+    if not turtle.refuel(1) then
+      turtle.drop()
     end
   end
   

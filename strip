@@ -1,0 +1,21 @@
+while true do
+  turtle.digDown()
+  turtle.digUp()
+  turtle.dig()
+  
+  turtle.suckDown()
+  turtle.suckUp()
+  turtle.suck()
+  
+  
+  for i = 1, 16, 1 do
+    turtle.select(i)
+    if turtle.getFuelLevel() < turtle.getFuelLimit() then
+      if not turtle.refuel(1) then
+        turtle.drop()
+      end
+    end
+  end
+  
+  turtle.forward()
+end

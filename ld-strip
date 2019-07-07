@@ -2,7 +2,7 @@ os.loadAPI("module")
 module.require("ld")
 module.require("config")
 
-ld.init(config.get("ld-cliendside-id"))
+ld.init(config.get("ld-clientside-id"))
 
 while true do
   if ld.variation(config.get("ld-flagkey")) then

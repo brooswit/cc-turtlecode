@@ -1,3 +1,5 @@
+print("ld-strip verison 1")
+
 os.loadAPI("module")
 module.require("ld")
 module.require("config")

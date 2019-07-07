@@ -1,0 +1,32 @@
+loadAPI("module")
+module.require("ld")
+module.require("config")
+
+ld.init(config.get("ld-cliendside-id"))
+
+while true do
+  if ld.variation(config.get("ld-flagkey")) then
+    turtle.digDown()
+    turtle.digUp()
+    turtle.dig()
+  
+    turtle.suckDown()
+    turtle.suckUp()
+    turtle.suck()
+  
+    if turtle.getFuelLevel() < turtle.getFuelLimit() then
+      local slot = turtle.getSelectedSlot() + 1
+      if slot > 16 then
+        slot = 1
+      end
+      turtle.select(slot)
+
+      if not turtle.refuel(1) then
+        turtle.drop()
+      end
+    end
+
+    turtle.forward()
+  end
+  sleep(0)
+end

@@ -1,0 +1,32 @@
+local fuelSlot = 1
+local blockSlot = 1
+local counter = 0
+
+while true do
+  if turtle.getFuelLevel() < turtle.getFuelLimit() then
+    turtle.select(fuelSlot)
+    if not turtle.refuel(1) then
+      fuelSlot = fuelSlot + 1
+      if fuelSlot > 16 then
+        fuelSlot = 1
+      end
+    end
+  end
+  
+  turtle.select(blockSlot)
+  if turtle.detectDown() or turtle.placeDown() then
+    counter = counter + 1
+    if counter > 4 then
+      counter = 0
+      turtle.up()
+    else
+      turtle.forward()
+    end
+  else
+    blockSlot = blockSlot + 1
+    if blockSlot > 16 then
+      blockSlot = 1
+    end
+    sleep(0)
+  end
+end

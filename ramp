@@ -15,12 +15,14 @@ while true do
   
   turtle.select(blockSlot)
   if turtle.detectDown() or turtle.placeDown() then
-    counter = counter + 1
-    if counter > 4 then
-      counter = 0
-      turtle.up()
+    if counter > 3 then
+      if turtle.up() then
+        counter = 0
+      end
     else
-      turtle.forward()
+      if turtle.forward() then
+        counter = counter + 1
+      end
     end
   else
     blockSlot = blockSlot + 1
